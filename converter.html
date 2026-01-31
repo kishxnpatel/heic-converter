@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anyfile to Anyfile - Full Converter</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      width: 420px;
+      padding: 10px 10px;
+      max-height: 1200px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #10b981;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .notice {
+      background: #1e293b;
+      border: 1px solid #10b981;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 10px;
+      color: #10b981;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <a href="#" class="back-link" onclick="window.close(); return false;">← Back to Extension</a>
+  
+  <div class="container">
+    <header>
+      <h1>📄 Anyfile to Anyfile</h1>
+      <p class="tagline">Full Page Converter (HEIC Support)</p>
+    </header>
+
+    <div class="notice">
+      💡 This page supports advanced conversions like HEIC that need extra processing power!
+    </div>
+
+    <div class="content">
+      <div class="converter-card">
+        <div class="upload-zone" id="uploadZone">
+          <div class="upload-icon">📁</div>
+          <p class="upload-text">Drop file here or click to browse</p>
+          <p class="upload-subtext">HEIC, images, documents supported • Multiple files allowed</p>
+          <input type="file" id="fileInput" class="file-input" accept="*/*,.heic,.heif" multiple title="Upload files to convert">
+        </div>
+
+        <div class="file-info hidden" id="fileInfo">
+          <div class="file-details">
+            <span class="file-icon">📄</span>
+            <div class="file-meta">
+              <p class="file-name" id="fileName">document.pdf</p>
+              <p class="file-size" id="fileSize">2.4 MB</p>
+            </div>
+            <button class="remove-btn" id="removeFile" title="Remove file">✕</button>
+          </div>
+        </div>
+
+        <div class="conversion-section hidden" id="conversionSection">
+          <div class="conversion-row">
+            <div class="dropdown-group">
+              <label for="fromFormat">From</label>
+              <select id="fromFormat" class="format-select" disabled title="Source file format">
+                <option value="pdf">PDF</option>
+              </select>
+            </div>
+
+            <div class="arrow-icon">→</div>
+
+            <div class="dropdown-group">
+              <label for="toFormat">To</label>
+              <select id="toFormat" class="format-select" title="Target file format">
+                <option value="">Select format</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="settings-section hidden" id="settingsSection">
+            <div class="setting-item">
+              <label class="checkbox-label">
+                <input type="checkbox" id="compressOutput">
+                <span>Compress output file</span>
+              </label>
+            </div>
+            <div class="setting-item hidden" id="qualitySlider">
+              <label for="quality">Quality: <span id="qualityValue">80</span>%</label>
+              <input type="range" min="10" max="100" value="80" id="quality" class="slider" title="Adjust quality">
+            </div>
+          </div>
+
+          <button class="convert-btn" id="convertBtn" disabled>
+            <span class="btn-icon">⚡</span>
+            <span class="btn-text">Convert Now</span>
+          </button>
+
+          <div class="progress-container hidden" id="progressContainer">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text" id="progressText">Processing... 0%</p>
+          </div>
+
+          <button class="download-btn hidden" id="downloadBtn">
+            <span class="btn-icon">⬇️</span>
+            <span class="btn-text">Download Result</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <small>💡 All conversions happen locally in your browser</small>
+      <h5><a href="https://getaddons.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a></h5>
+    </footer>
+  </div>
+
+  <div class="copy-feedback" id="feedback">
+    ✓ Success!
+  </div>
+
+  <!-- Load scripts - NO CSP restrictions here! -->
+  <script src="./libs/jspdf.umd.min.js"></script>
+  <script src="./libs/heic2any.min.js"></script>
+  <script src="constants.js"></script>
+  <script src="helpers.js"></script>
+  <script src="./converters/images.js"></script>
+  <script src="./converters/documents.js"></script>
+  <script src="./converters/data.js"></script>
+  <script src="./converters/index.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

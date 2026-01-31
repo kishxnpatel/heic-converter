@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HEIC Converter - Anyfile to Anyfile</title>
+  <title>Anyfile to Anyfile - HEIC Converter</title>
   <style>
 /* ============================================
-   ANYFILE TO ANYFILE - HEIC CONVERTER
-   GitHub Pages Version
+   ANYFILE TO ANYFILE - GITHUB PAGES VERSION
    ============================================ */
 
-/* BASE STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -37,15 +35,16 @@ body {
   width: 100%;
 }
 
-/* HEADER */
+/* ============================================
+   HEADER
+   ============================================ */
 header {
   background-color: #2d2d2d;
   color: white;
   padding: 20px;
-  border-radius: 8px 8px 0 0;
-  border: 1px solid #414141;
   border-bottom: 2px solid #414141;
   text-align: center;
+  border-radius: 8px 8px 0 0;
 }
 
 h1 {
@@ -60,27 +59,41 @@ h1 {
   margin-top: 8px;
 }
 
-/* NOTICE */
+/* ============================================
+   CONTENT AREA
+   ============================================ */
+.content {
+  background: #1a1a1a;
+}
+
+/* ============================================
+   CONVERTER CARD
+   ============================================ */
+.converter-card {
+  background: #2d2d2d;
+  border-radius: 0 0 8px 8px;
+  padding: 20px;
+  border: 1px solid #414141;
+  border-top: none;
+}
+
+/* ============================================
+   NOTICE
+   ============================================ */
 .notice {
   background: #1e293b;
   border: 1px solid #10b981;
   border-radius: 8px;
   padding: 15px;
-  margin: 15px 0;
+  margin-bottom: 20px;
   color: #10b981;
   font-size: 14px;
-  text-align: center;
+  line-height: 1.5;
 }
 
-/* CONTENT */
-.content {
-  background: #2d2d2d;
-  border: 1px solid #414141;
-  border-radius: 0 0 8px 8px;
-  padding: 20px;
-}
-
-/* UPLOAD ZONE */
+/* ============================================
+   FILE UPLOAD ZONE
+   ============================================ */
 .upload-zone {
   border: 2px dashed #444;
   border-radius: 8px;
@@ -105,19 +118,19 @@ h1 {
 
 .upload-icon {
   font-size: 64px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   opacity: 0.8;
 }
 
 .upload-text {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #e0e0e0;
   margin-bottom: 8px;
 }
 
 .upload-subtext {
-  font-size: 13px;
+  font-size: 14px;
   color: #888;
 }
 
@@ -125,11 +138,13 @@ h1 {
   display: none;
 }
 
-/* FILE INFO */
+/* ============================================
+   FILE INFO DISPLAY
+   ============================================ */
 .file-info {
   background: #1a1a1a;
   border-radius: 8px;
-  padding: 15px;
+  padding: 16px;
   margin-bottom: 20px;
   border: 1px solid #414141;
 }
@@ -137,7 +152,7 @@ h1 {
 .file-details {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
 }
 
 .file-icon {
@@ -151,7 +166,7 @@ h1 {
 }
 
 .file-name {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #e0e0e0;
   white-space: nowrap;
@@ -161,17 +176,41 @@ h1 {
 }
 
 .file-size {
-  font-size: 12px;
+  font-size: 14px;
   color: #888;
 }
 
-/* FORMAT SELECTOR */
-.format-selector {
+.remove-btn {
+  background: #991b1b;
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* ============================================
+   FORMAT SELECTION
+   ============================================ */
+.format-section {
   margin-bottom: 20px;
 }
 
-.format-selector p {
-  font-size: 13px;
+.format-label {
+  display: block;
+  font-size: 12px;
   font-weight: 600;
   color: #888;
   margin-bottom: 12px;
@@ -186,15 +225,15 @@ h1 {
 }
 
 .format-btn {
-  padding: 20px;
-  border: 2px solid #3f3f3f;
+  padding: 16px;
   background: #1a1a1a;
+  border: 2px solid #3f3f3f;
   border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
+  color: #e0e0e0;
   font-size: 14px;
   font-weight: 600;
-  color: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.2s ease;
   text-align: center;
 }
 
@@ -206,18 +245,20 @@ h1 {
 .format-btn.selected {
   border-color: #10b981;
   background: #10b981;
-  color: #fff;
+  color: white;
 }
 
-/* BUTTONS */
+/* ============================================
+   BUTTONS
+   ============================================ */
 .convert-btn {
   width: 100%;
   padding: 16px 24px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: #1a8b65;
   border: none;
   border-radius: 8px;
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
@@ -226,12 +267,13 @@ h1 {
   gap: 10px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .convert-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
 }
 
 .convert-btn:active {
@@ -243,17 +285,24 @@ h1 {
   color: #666;
   cursor: not-allowed;
   box-shadow: none;
+}
+
+.convert-btn:disabled:hover {
   transform: none;
+}
+
+.btn-icon {
+  font-size: 18px;
 }
 
 .download-btn {
   width: 100%;
   padding: 16px 24px;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: #2d528d;
   border: none;
   border-radius: 8px;
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
@@ -267,15 +316,18 @@ h1 {
 .download-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
 }
 
 .download-btn:active {
   transform: translateY(0);
 }
 
-/* PROGRESS */
-.progress {
-  margin-bottom: 15px;
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+.progress-container {
+  margin-bottom: 20px;
 }
 
 .progress-bar {
@@ -296,97 +348,147 @@ h1 {
 }
 
 .progress-text {
-  font-size: 13px;
+  font-size: 14px;
   color: #888;
   text-align: center;
 }
 
-/* FOOTER */
+/* ============================================
+   FOOTER
+   ============================================ */
 footer {
   background: #2d2d2d;
-  border: 1px solid #414141;
   border-top: 2px solid #414141;
-  border-radius: 0 0 8px 8px;
-  padding: 15px;
+  padding: 16px;
   text-align: center;
   color: #888;
+  border-radius: 0 0 8px 8px;
+}
+
+footer small {
   font-size: 12px;
 }
 
 footer a {
   color: #10b981;
   text-decoration: none;
-  font-weight: 600;
-  margin: 0 5px;
+  margin-left: 8px;
 }
 
 footer a:hover {
   color: #059669;
-  text-decoration: underline;
+}
+
+/* ============================================
+   TOAST FEEDBACK
+   ============================================ */
+.copy-feedback {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #10b981;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.copy-feedback.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  
+  .format-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>📱 HEIC Converter</h1>
-      <p class="tagline">Convert iPhone photos to universal formats</p>
+      <h1>📄 HEIC Converter</h1>
+      <p class="tagline">Convert iPhone photos instantly</p>
     </header>
 
-    <div class="notice">
-      💡 100% offline • All conversions happen in your browser • No uploads • Private & secure
-    </div>
-
     <div class="content">
-      <div class="upload-zone" id="uploadZone">
-        <div class="upload-icon">📁</div>
-        <p class="upload-text">Drop HEIC file here or click to browse</p>
-        <p class="upload-subtext">iPhone photos • .heic or .heif files</p>
-        <input type="file" id="fileInput" class="file-input" accept=".heic,.heif">
-      </div>
+      <div class="converter-card">
+        <div class="notice">
+          💡 <strong>100% Private:</strong> All conversions happen in your browser. No uploads, no tracking, works offline after first visit!
+        </div>
 
-      <div class="file-info hidden" id="fileInfo">
-        <div class="file-details">
-          <span class="file-icon">📄</span>
-          <div class="file-meta">
-            <p class="file-name" id="fileName">file.heic</p>
-            <p class="file-size" id="fileSize">0 MB</p>
+        <div class="upload-zone" id="uploadZone">
+          <div class="upload-icon">📁</div>
+          <p class="upload-text">Drop HEIC file here</p>
+          <p class="upload-subtext">or click to browse</p>
+          <input type="file" id="fileInput" class="file-input" accept=".heic,.heif">
+        </div>
+
+        <div class="file-info hidden" id="fileInfo">
+          <div class="file-details">
+            <span class="file-icon">📄</span>
+            <div class="file-meta">
+              <p class="file-name" id="fileName">file.heic</p>
+              <p class="file-size" id="fileSize">0 MB</p>
+            </div>
+            <button class="remove-btn" id="removeBtn">✕</button>
           </div>
         </div>
-      </div>
 
-      <div class="format-selector hidden" id="formatSelector">
-        <p>Convert to:</p>
-        <div class="format-buttons">
-          <button class="format-btn" data-format="jpg">JPG</button>
-          <button class="format-btn" data-format="png">PNG</button>
-          <button class="format-btn" data-format="webp">WebP</button>
-          <button class="format-btn" data-format="pdf">PDF</button>
+        <div class="format-section hidden" id="formatSection">
+          <label class="format-label">Convert to:</label>
+          <div class="format-buttons">
+            <button class="format-btn" data-format="jpg">JPG</button>
+            <button class="format-btn" data-format="png">PNG</button>
+            <button class="format-btn" data-format="webp">WebP</button>
+            <button class="format-btn" data-format="pdf">PDF</button>
+          </div>
         </div>
-      </div>
 
-      <button class="convert-btn hidden" id="convertBtn">⚡ Convert Now</button>
+        <button class="convert-btn hidden" id="convertBtn">
+          <span class="btn-icon">⚡</span>
+          <span>Convert Now</span>
+        </button>
 
-      <div class="progress hidden" id="progress">
-        <div class="progress-bar">
-          <div class="progress-fill" id="progressFill"></div>
+        <div class="progress-container hidden" id="progressContainer">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <p class="progress-text" id="progressText">Converting... 0%</p>
         </div>
-        <p class="progress-text" id="progressText">Converting... 0%</p>
-      </div>
 
-      <button class="download-btn hidden" id="downloadBtn">⬇️ Download Result</button>
+        <button class="download-btn hidden" id="downloadBtn">
+          <span class="btn-icon">⬇️</span>
+          <span>Download Result</span>
+        </button>
+      </div>
     </div>
 
     <footer>
-      <p>Made with ❤️ by <a href="https://getaddons.io" target="_blank">GetAddons</a></p>
-      <p><a href="https://getaddons.io/privacy" target="_blank">Privacy</a> • <a href="https://chromewebstore.google.com" target="_blank">Chrome Extension</a></p>
+      <small>Made with ❤️ for iPhone users</small>
+      <a href="https://getaddons.io/privacy" target="_blank">Privacy Policy</a>
     </footer>
   </div>
 
-  <!-- Load heic2any from CDN -->
+  <div class="copy-feedback" id="feedback">✓ Success!</div>
+
+  <!-- Load libraries from CDN -->
   <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
-  
-  <!-- Load jsPDF from CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <script>
@@ -394,63 +496,61 @@ footer a:hover {
     let convertedBlob = null;
     let selectedFormat = null;
 
-    const elements = {
+    const el = {
       uploadZone: document.getElementById('uploadZone'),
       fileInput: document.getElementById('fileInput'),
       fileInfo: document.getElementById('fileInfo'),
       fileName: document.getElementById('fileName'),
       fileSize: document.getElementById('fileSize'),
-      formatSelector: document.getElementById('formatSelector'),
+      removeBtn: document.getElementById('removeBtn'),
+      formatSection: document.getElementById('formatSection'),
       convertBtn: document.getElementById('convertBtn'),
-      progress: document.getElementById('progress'),
+      progressContainer: document.getElementById('progressContainer'),
       progressFill: document.getElementById('progressFill'),
       progressText: document.getElementById('progressText'),
-      downloadBtn: document.getElementById('downloadBtn')
+      downloadBtn: document.getElementById('downloadBtn'),
+      feedback: document.getElementById('feedback')
     };
 
-    // Upload zone click
-    elements.uploadZone.addEventListener('click', () => elements.fileInput.click());
-
-    // Drag and drop
-    elements.uploadZone.addEventListener('dragover', (e) => {
+    // Upload zone
+    el.uploadZone.addEventListener('click', () => el.fileInput.click());
+    el.uploadZone.addEventListener('dragover', (e) => {
       e.preventDefault();
-      elements.uploadZone.classList.add('dragover');
+      el.uploadZone.classList.add('dragover');
     });
-
-    elements.uploadZone.addEventListener('dragleave', () => {
-      elements.uploadZone.classList.remove('dragover');
+    el.uploadZone.addEventListener('dragleave', () => {
+      el.uploadZone.classList.remove('dragover');
     });
-
-    elements.uploadZone.addEventListener('drop', (e) => {
+    el.uploadZone.addEventListener('drop', (e) => {
       e.preventDefault();
-      elements.uploadZone.classList.remove('dragover');
-      if (e.dataTransfer.files.length > 0) {
-        handleFile(e.dataTransfer.files[0]);
-      }
+      el.uploadZone.classList.remove('dragover');
+      if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]);
     });
-
-    // File input change
-    elements.fileInput.addEventListener('change', (e) => {
-      if (e.target.files.length > 0) {
-        handleFile(e.target.files[0]);
-      }
+    el.fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length > 0) handleFile(e.target.files[0]);
     });
 
     // Handle file
     function handleFile(file) {
-      // Check if it's a HEIC file
-      const ext = file.name.split('.').pop().toLowerCase();
-      if (ext !== 'heic' && ext !== 'heif') {
-        alert('Please select a HEIC or HEIF file (iPhone photo)');
-        return;
-      }
-
       currentFile = file;
-      elements.fileName.textContent = file.name;
-      elements.fileSize.textContent = formatFileSize(file.size);
-      elements.fileInfo.classList.remove('hidden');
-      elements.formatSelector.classList.remove('hidden');
+      el.fileName.textContent = file.name;
+      el.fileSize.textContent = formatFileSize(file.size);
+      el.fileInfo.classList.remove('hidden');
+      el.formatSection.classList.remove('hidden');
     }
+
+    // Remove file
+    el.removeBtn.addEventListener('click', () => {
+      currentFile = null;
+      convertedBlob = null;
+      selectedFormat = null;
+      el.fileInput.value = '';
+      el.fileInfo.classList.add('hidden');
+      el.formatSection.classList.add('hidden');
+      el.convertBtn.classList.add('hidden');
+      el.downloadBtn.classList.add('hidden');
+      document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('selected'));
+    });
 
     // Format selection
     document.querySelectorAll('.format-btn').forEach(btn => {
@@ -458,19 +558,21 @@ footer a:hover {
         document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
         selectedFormat = btn.dataset.format;
-        elements.convertBtn.classList.remove('hidden');
+        el.convertBtn.classList.remove('hidden');
       });
     });
 
-    // Convert button
-    elements.convertBtn.addEventListener('click', async () => {
+    // Convert
+    el.convertBtn.addEventListener('click', async () => {
       if (!currentFile || !selectedFormat) return;
 
-      elements.convertBtn.disabled = true;
-      elements.progress.classList.remove('hidden');
-      updateProgress(10, 'Starting...');
+      el.convertBtn.disabled = true;
+      el.progressContainer.classList.remove('hidden');
+      el.downloadBtn.classList.add('hidden');
 
       try {
+        updateProgress(10, 'Starting...');
+
         if (selectedFormat === 'jpg') {
           convertedBlob = await convertHEICToJPG(currentFile);
         } else if (selectedFormat === 'png') {
@@ -481,18 +583,19 @@ footer a:hover {
           convertedBlob = await convertHEICToPDF(currentFile);
         }
 
-        elements.progress.classList.add('hidden');
-        elements.downloadBtn.classList.remove('hidden');
+        el.progressContainer.classList.add('hidden');
+        el.downloadBtn.classList.remove('hidden');
+        showFeedback('✓ Conversion complete!');
       } catch (error) {
-        alert('Conversion failed: ' + error.message);
-        elements.progress.classList.add('hidden');
+        showFeedback('❌ Conversion failed: ' + error.message);
+        el.progressContainer.classList.add('hidden');
       } finally {
-        elements.convertBtn.disabled = false;
+        el.convertBtn.disabled = false;
       }
     });
 
-    // Download button
-    elements.downloadBtn.addEventListener('click', () => {
+    // Download
+    el.downloadBtn.addEventListener('click', () => {
       if (!convertedBlob) return;
 
       const originalName = currentFile.name.split('.')[0] || 'converted';
@@ -507,13 +610,10 @@ footer a:hover {
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
 
-      // Reset after download
-      setTimeout(() => {
-        location.reload();
-      }, 1000);
+      showFeedback('✓ Downloaded!');
     });
 
-    // HEIC Conversion Functions
+    // HEIC Conversions
     async function convertHEICToJPG(file) {
       updateProgress(30, 'Converting to JPG...');
       const jpegBlob = await heic2any({
@@ -555,7 +655,7 @@ footer a:hover {
       });
 
       updateProgress(50, 'Creating PDF...');
-      
+
       return new Promise((resolve, reject) => {
         const img = new Image();
         const url = URL.createObjectURL(jpegBlob);
@@ -602,10 +702,10 @@ footer a:hover {
       });
     }
 
-    // Helper functions
+    // Helpers
     function updateProgress(percent, message) {
-      elements.progressFill.style.width = percent + '%';
-      elements.progressText.textContent = `${message} ${percent}%`;
+      el.progressFill.style.width = percent + '%';
+      el.progressText.textContent = `${message} ${percent}%`;
     }
 
     function formatFileSize(bytes) {
@@ -614,6 +714,12 @@ footer a:hover {
       const sizes = ['Bytes', 'KB', 'MB', 'GB'];
       const i = Math.floor(Math.log(bytes) / Math.log(k));
       return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    }
+
+    function showFeedback(message) {
+      el.feedback.textContent = message;
+      el.feedback.classList.add('show');
+      setTimeout(() => el.feedback.classList.remove('show'), 3000);
     }
   </script>
 </body>
